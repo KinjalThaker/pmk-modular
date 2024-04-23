@@ -2,6 +2,7 @@
 
 namespace Modules\Customer\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class CustomerServiceProvider extends ServiceProvider
@@ -13,5 +14,7 @@ class CustomerServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->mergeConfigFrom(__DIR__ . '/../config.php', 'customer');
+
+        $this->app->register(RouteServiceProvider::class);
     }
 }
