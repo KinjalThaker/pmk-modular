@@ -1,7 +1,6 @@
 <?php
 
+use Modules\Customer\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('customer-get', function(){
-    return 'Hello World!';
-});
+Route::get('customer-get', [CustomerController::class, 'index']);
