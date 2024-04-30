@@ -9,7 +9,17 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customer = Customer::factory()->count(10)->create();
+        $customer = Customer::all();
         dd($customer);
+    }
+
+    public function save(Request $request)
+    {
+        $customer = new Customer();
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->email_address = $request->email;
+
+        $customer->save();
     }
 }
