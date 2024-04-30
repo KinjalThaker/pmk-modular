@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Customer\Providers;
+namespace Modules\Tools;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ProvidersRouteServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ProvidersRouteServiceProvider
         $this->routes(function(){
             Route::middleware('api')
                 ->prefix('api')
-                ->group(__DIR__ . '/../routes.php');
+                ->group(__DIR__ . '/routes.php');
         });
     }
 }

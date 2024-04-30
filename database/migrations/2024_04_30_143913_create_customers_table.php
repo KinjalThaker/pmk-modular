@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->integer('customer_id', 11)->primary();
-            $table->string('first_name', 100);
+            $table->string('first_name', 100)->index();
             $table->string('last_name', 100);
             $table->string('email_address', 100)->unique();
             $table->timestamp('created_at')->useCurrent();

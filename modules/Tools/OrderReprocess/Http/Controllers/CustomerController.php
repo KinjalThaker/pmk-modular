@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Customer\Http\Controllers;
+namespace Modules\Tools\OrderReProcess\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Modules\Customer\Http\Models\Customer;
+use Modules\Customer\Models\Customer;
 
-class CustomerController extends Controller
+class CustomerController
 {
     public function index()
     {

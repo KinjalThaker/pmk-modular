@@ -1,10 +1,9 @@
 <?php
 
-namespace Modules\Customer\Http\Models;
+namespace Modules\Customer\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Customer\Database\factories\CustomerFactory;
 
 class Customer extends Model
 {
