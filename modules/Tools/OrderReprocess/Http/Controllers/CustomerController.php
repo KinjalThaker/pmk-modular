@@ -2,24 +2,40 @@
 
 namespace Modules\Tools\OrderReProcess\Http\Controllers;
 
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Customer\Models\Customer;
+use Modules\Customer\Repositories\Customers;
 
 class CustomerController
 {
-    public function index()
+    private $customer;
+
+    public function __construct()
     {
-        $customer = Customer::all();
-        dd($customer);
+        $this->customer = new Customers();        
     }
 
-    public function save(Request $request)
+    public function index(): JsonResponse
     {
-        $customer = new Customer();
-        $customer->first_name = $request->first_name;
-        $customer->last_name = $request->last_name;
-        $customer->email_address = $request->email;
+        try
+        {
+            return $this->customer->getAll();
+        } catch (Exception $ex)
+        {
+            return response()->json($ex->getMessage());
+        }
+    }
 
-        $customer->save();
+    public function save(Request $request): JsonResponse
+    {
+        try
+        {
+            return $this->customer->create($request->all());
+        } catch (Exception $ex)
+        {
+            return response()->json($ex->getMessage());
+        }
     }
 }

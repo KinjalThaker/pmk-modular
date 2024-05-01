@@ -14,6 +14,7 @@ class ToolsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../Customer/migrations');
         $this->loadMigrationsFrom(__DIR__ . '/../Order/migrations');
         $this->loadMigrationsFrom(__DIR__ . '/../Product/migrations');
+        $this->mergeConfigFrom(__DIR__ . '/../Customer/config.php', 'customer');
         
         $this->app->register(RouteServiceProvider::class);
     }

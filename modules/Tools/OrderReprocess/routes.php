@@ -15,3 +15,8 @@ Route::prefix('order')->group(function(){
     Route::get('/', [OrderController::class, 'index']);
     Route::post('post', [OrderController::class, 'save']);
 });
+
+Route::prefix('product')->group(function(){
+    Route::get('/', [OrderController::class, 'index']);
+    Route::post('post', [OrderController::class, 'save']);
+});
