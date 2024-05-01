@@ -11,6 +11,10 @@ class ToolsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->loadMigrationsFrom(__DIR__ . '/../Customer/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Order/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Product/migrations');
+        
         $this->app->register(RouteServiceProvider::class);
     }
 }
