@@ -2,30 +2,39 @@
 
 namespace Modules\Tools\OrderReProcess\Http\Controllers;
 
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Product\Models\Product;
+use Modules\Product\Repositories\Products;
 
 class ProductController
 {
-    public function index()
+    private $product;
+
+    public function __construct()
     {
-        $product = Product::all();
-        dd($product);
+        $this->product = new Products();        
     }
 
-    public function save(Request $request)
+    public function index(): JsonResponse
     {
-        $product = new Product();
-        $product->name = $request->name;
-        $product->code = $request->code;
-        $product->sku = $request->sku;
-        $product->description = $request->description;
-        $product->is_digital = $request->is_digital;
-        $product->price = $request->price;
-        $product->weight = $request->weight;
-        $product->msrp = $request->msrp;
-        $product->stock_qty = $request->stock_qty;
+        try
+        {
+            return $this->product->getAll();
+        } catch (Exception $ex)
+        {
+            return response()->json($ex->getMessage());
+        }
+    }
 
-        $product->save();
+    public function save(Request $request): JsonResponse
+    {
+        try
+        {
+            return $this->product->create($request->all());
+        } catch (Exception $ex)
+        {
+            return response()->json($ex->getMessage());
+        }
     }
 }

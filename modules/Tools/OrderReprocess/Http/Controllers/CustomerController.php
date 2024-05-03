@@ -5,7 +5,6 @@ namespace Modules\Tools\OrderReProcess\Http\Controllers;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Customer\Models\Customer;
 use Modules\Customer\Repositories\Customers;
 
 class CustomerController

@@ -23,7 +23,7 @@ class Customers
             $customer = Customer::all();
 
             $this->returnResponse['error'] = false;
-            $this->returnResponse['message'] = "Order fetch successfully.";
+            $this->returnResponse['message'] = "Customers fetch successfully.";
             $this->returnResponse['data'] = $customer;
 
             return response()->json($this->returnResponse);
@@ -48,7 +48,7 @@ class Customers
             $customer->save();
 
             $this->returnResponse['error'] = false;
-            $this->returnResponse['message'] = "Order saved successfully.";
+            $this->returnResponse['message'] = "Customer saved successfully.";
             $this->returnResponse['data'] = $customer;
 
             return response()->json($this->returnResponse);
